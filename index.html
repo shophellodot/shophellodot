@@ -11,36 +11,41 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: #fffafa;
-      color: #3b2525;
-      font-family: Georgia, serif;
+      color: #3b2929;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
     header {
+      padding: 25px 20px;
       text-align: center;
-      padding: 35px 20px 20px;
-      border-bottom: 1px solid #f1d5d8;
+      border-bottom: 1px solid #f2d9dc;
+      background: #ffffff;
     }
 
     .logo {
-      font-size: 32px;
+      margin: 0;
+      font-size: 30px;
       font-weight: bold;
       color: #d96f83;
-      margin: 0;
     }
 
     .tagline {
-      margin: 6px 0 20px;
-      color: #8c6268;
-      font-size: 15px;
+      margin: 5px 0 18px;
+      color: #8d686d;
+      font-size: 14px;
     }
 
     nav a {
-      color: #6f454c;
+      margin: 0 8px;
+      color: #563c40;
       text-decoration: none;
-      margin: 0 10px;
       font-size: 14px;
     }
 
@@ -50,114 +55,157 @@
 
     .hero {
       text-align: center;
-      padding: 65px 20px;
+      padding: 75px 20px;
+      background: #fff4f6;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin: 0 0 15px;
-      color: #4a292d;
+      margin: 0 auto 15px;
+      max-width: 650px;
+      font-size: 52px;
+      line-height: 1;
+      color: #432b2f;
     }
 
     .hero p {
       max-width: 500px;
-      margin: auto;
+      margin: 0 auto;
       line-height: 1.7;
-      color: #76585d;
+      color: #765b60;
+      font-size: 16px;
     }
 
     .button {
       display: inline-block;
       margin-top: 25px;
-      padding: 12px 25px;
-      background: #e98da0;
+      padding: 13px 28px;
+      border-radius: 30px;
+      background: #df7d91;
       color: white;
       text-decoration: none;
-      border-radius: 25px;
+      font-family: Arial, sans-serif;
       font-size: 14px;
+    }
+
+    .button:hover {
+      background: #c9667b;
     }
 
     section {
       max-width: 900px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 55px 20px;
     }
 
-    .title {
+    .section-title {
+      margin: 0 0 30px;
       text-align: center;
-      font-size: 28px;
-      color: #4a292d;
+      font-size: 30px;
+      color: #432b2f;
+    }
+
+    .subtitle {
+      margin-top: -18px;
       margin-bottom: 30px;
+      text-align: center;
+      color: #977176;
+      font-size: 14px;
     }
 
     .sets {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 20px;
     }
 
     .set {
+      padding: 30px 20px;
+      text-align: center;
       background: white;
       border: 1px solid #f0d9dc;
-      border-radius: 18px;
-      padding: 25px;
-      text-align: center;
+      border-radius: 20px;
     }
 
     .set h3 {
       margin: 0 0 8px;
       color: #d96f83;
-      font-size: 20px;
+      font-size: 21px;
     }
 
     .price {
+      margin: 5px 0 10px;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 18px;
-      margin: 8px 0;
     }
 
     .set p {
-      color: #76585d;
-      font-size: 14px;
-    }
-
-    .info {
-      background: #fff0f3;
-      border-radius: 20px;
-      padding: 30px;
-      margin-top: 25px;
-    }
-
-    .info h3 {
-      color: #d96f83;
-      margin-top: 0;
-    }
-
-    .info p,
-    .info li {
-      color: #684b50;
-      line-height: 1.7;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      border-top: 1px solid #f1d5d8;
-      color: #8c6268;
+      margin: 0;
+      color: #806166;
+      font-family: Arial, sans-serif;
       font-size: 13px;
     }
 
+    .box {
+      padding: 28px;
+      background: #fff0f3;
+      border-radius: 20px;
+    }
+
+    .box h3 {
+      margin-top: 0;
+      color: #d96f83;
+      font-size: 20px;
+    }
+
+    .box p,
+    .box li {
+      color: #684e53;
+      line-height: 1.7;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .box ul {
+      padding-left: 20px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .order {
+      text-align: center;
+      background: #fff0f3;
+      border-radius: 25px;
+    }
+
+    .order h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid #f2d9dc;
+      color: #98747a;
+      font-size: 13px;
+      background: white;
+    }
+
     @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
       .sets {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 38px;
-      }
-
       nav a {
-        margin: 0 5px;
+        display: inline-block;
+        margin: 5px;
       }
     }
   </style>
@@ -165,152 +213,243 @@
 
 <body>
 
-<header>
-  <p class="logo">hellodot</p>
-  <p class="tagline">a dot of beauty.</p>
+  <!-- HEADER -->
 
-  <nav>
-    <a href="#shop">shop</a>
-    <a href="#custom">custom</a>
-    <a href="#sizing">sizing</a>
-    <a href="#addons">add-ons</a>
-    <a href="#policies">policies</a>
-  </nav>
-</header>
+  <header>
+    <p class="logo">hellodot</p>
+    <p class="tagline">a dot of beauty.</p>
 
-<section class="hero">
-  <h1>handmade press-on nails</h1>
+    <nav>
+      <a href="#shop">shop</a>
+      <a href="#custom">custom</a>
+      <a href="#sizing">sizing</a>
+      <a href="#addons">add-ons</a>
+      <a href="#policies">policies</a>
+    </nav>
+  </header>
 
-  <p>
-    Cute, handmade press-on nails designed with love
-    and a little something extra.
-  </p>
 
-  <a class="button" href="#shop">shop the collection</a>
-</section>
+  <!-- HERO -->
 
-<section id="shop">
-  <h2 class="title">the collection</h2>
+  <div class="hero">
+    <h1>handmade press-on nails</h1>
 
-  <div class="sets">
+    <p>
+      Cute, handmade press-on nails designed with love
+      and a little something extra.
+    </p>
 
-    <div class="set">
-      <h3>Sugar Dots</h3>
-      <div class="price">$15</div>
-      <p>Available in short and medium.</p>
+    <a class="button" href="#shop">shop the collection</a>
+  </div>
+
+
+  <!-- CORE 4 -->
+
+  <section id="shop">
+
+    <h2 class="section-title">Core 4</h2>
+
+    <p class="subtitle">
+      Our signature collection
+    </p>
+
+    <div class="sets">
+
+      <div class="set">
+        <h3>Sugar Dots</h3>
+        <div class="price">$15</div>
+        <p>Short + Medium</p>
+      </div>
+
+      <div class="set">
+        <h3>Scarlet Petals</h3>
+        <div class="price">$28</div>
+        <p>Short + Medium</p>
+      </div>
+
+      <div class="set">
+        <h3>Pink Haze</h3>
+        <div class="price">$22</div>
+        <p>Short + Medium</p>
+      </div>
+
+      <div class="set">
+        <h3>Sweetheart Charm</h3>
+        <div class="price">$24</div>
+        <p>Short + Medium</p>
+      </div>
+
     </div>
 
-    <div class="set">
-      <h3>Scarlet Petals</h3>
-      <div class="price">$28</div>
-      <p>Available in short and medium.</p>
+  </section>
+
+
+  <!-- CUSTOM -->
+
+  <section id="custom">
+
+    <h2 class="section-title">Custom Sets</h2>
+
+    <div class="box center">
+
+      <h3>made just for you</h3>
+
+      <p>
+        Want something completely your own?
+        Custom sets start at <strong>$20</strong>.
+      </p>
+
+      <p>
+        DM to discuss your design, colors, charms and details.
+      </p>
+
     </div>
 
-    <div class="set">
-      <h3>Pink Haze</h3>
-      <div class="price">$22</div>
-      <p>Available in short and medium.</p>
+  </section>
+
+
+  <!-- SIZING -->
+
+  <section id="sizing">
+
+    <h2 class="section-title">Sizing</h2>
+
+    <div class="box">
+
+      <h3>The Quarter Method</h3>
+
+      <p>
+        HelloDot uses the quarter method for sizing.
+      </p>
+
+      <p>
+        If you don't know how to use the quarter method,
+        look it up on TikTok for a quick tutorial.
+      </p>
+
+      <p>
+        Please double-check your measurements before placing
+        your order.
+      </p>
+
     </div>
 
-    <div class="set">
-      <h3>Sweetheart Charm</h3>
-      <div class="price">$24</div>
-      <p>Available in short and medium.</p>
+  </section>
+
+
+  <!-- ADD ONS -->
+
+  <section id="addons">
+
+    <h2 class="section-title">Add-ons</h2>
+
+    <div class="box">
+
+      <ul>
+        <li>French tips — +$2</li>
+        <li>Charms — +$2 each</li>
+        <li>Chrome — +$2</li>
+        <li>Extra glitter — +$1</li>
+        <li>3D art — +$3</li>
+        <li>Extra nail art — +$2</li>
+        <li>Rhinestones — +$2</li>
+        <li>Mix & match — +$3</li>
+      </ul>
+
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section id="custom">
-  <h2 class="title">custom sets</h2>
 
-  <div class="info">
-    <h3>made just for you</h3>
-    <p>
-      Want something completely your own?
-      Custom sets start at <strong>$20</strong>.
-    </p>
-    <p>
-      DM to discuss your design, colors, charms and details.
-    </p>
-  </div>
-</section>
+  <!-- PAYMENT -->
 
-<section id="sizing">
-  <h2 class="title">sizing</h2>
+  <section>
 
-  <div class="info">
-    <h3>the quarter method</h3>
-    <p>
-      HelloDot uses the quarter method for sizing.
-      If you don't know how to measure your nails using
-      this method, look it up on TikTok for a quick tutorial.
-    </p>
-  </div>
-</section>
+    <h2 class="section-title">Payment</h2>
 
-<section id="addons">
-  <h2 class="title">add-ons</h2>
+    <div class="box center">
 
-  <div class="info">
-    <ul>
-      <li>French tips — +$2</li>
-      <li>Charms — +$2 each</li>
-      <li>Chrome — +$2</li>
-      <li>Extra glitter — +$1</li>
-      <li>3D art — +$3</li>
-      <li>Extra nail art — +$2</li>
-      <li>Rhinestones — +$2</li>
-      <li>Mix & match — +$3</li>
-    </ul>
-  </div>
-</section>
+      <p>
+        Cash is currently available for payment.
+      </p>
 
-<section>
-  <h2 class="title">payment</h2>
+      <p>
+        More payment options coming soon.
+      </p>
 
-  <div class="info">
-    <p>
-      Cash is currently available for payment.
-      More payment options coming soon.
-    </p>
-  </div>
-</section>
+    </div>
 
-<section id="policies">
-  <h2 class="title">policies</h2>
+  </section>
 
-  <div class="info">
-    <h3>before ordering</h3>
 
-    <ul>
-      <li>Please double-check your nail sizes before ordering.</li>
-      <li>All sets are handmade, so small differences may occur.</li>
-      <li>Custom orders must be discussed before payment.</li>
-      <li>Please be patient while your order is being made.</li>
-      <li>Once an order is confirmed, changes may not be possible.</li>
-    </ul>
-  </div>
-</section>
+  <!-- POLICIES -->
 
-<section>
-  <div class="info" style="text-align:center;">
-    <h3>ready to order?</h3>
+  <section id="policies">
 
-    <p>
-      Send a DM with the set you'd like, your length,
-      sizing and any add-ons.
-    </p>
+    <h2 class="section-title">Policies</h2>
 
-    <a class="button" href="https://instagram.com/" target="_blank">
-      DM to order
-    </a>
-  </div>
-</section>
+    <div class="box">
 
-<footer>
-  hellodot · a dot of beauty.
-</footer>
+      <ul>
+        <li>Please double-check your sizing before ordering.</li>
+
+        <li>
+          All sets are handmade, so small differences
+          may occur.
+        </li>
+
+        <li>
+          Custom orders must be discussed before payment.
+        </li>
+
+        <li>
+          Please be patient while your order is being made.
+        </li>
+
+        <li>
+          Once an order is confirmed, changes may not be possible.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER -->
+
+  <section>
+
+    <div class="order box">
+
+      <h2>ready to order?</h2>
+
+      <p>
+        DM to order your set.
+      </p>
+
+      <p>
+        Include the set you'd like, your length,
+        sizing and any add-ons.
+      </p>
+
+      <!-- WE WILL PUT YOUR INSTAGRAM LINK HERE -->
+
+      <a class="button" href="#order">
+        DM to order
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    hellodot · a dot of beauty.
+  </footer>
 
 </body>
 </html>
