@@ -1,699 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelloDot | A Dot of Beauty</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #fff9fa;
-      color: #39272a;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      padding: 22px 7%;
-      background: white;
-      border-bottom: 2px solid #f3c8d1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      color: #3b292c;
-      font-family: Georgia, serif;
-      font-size: 30px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .logo span {
-      color: #e87991;
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      color: #4b373b;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #e87991;
-    }
-
-    .hero {
-      padding: 90px 7%;
-      text-align: center;
-      background-color: #fff0f3;
-      background-image:
-        radial-gradient(#f1a2b4 5px, transparent 6px);
-      background-size: 65px 65px;
-      border-bottom: 2px dashed #e99aaa;
-    }
-
-    .hero-inner {
-      max-width: 750px;
-      margin: auto;
-      background: rgba(255,255,255,.88);
-      border: 2px dashed #e99aaa;
-      border-radius: 35px;
-      padding: 60px 25px;
-    }
-
-    .small {
-      color: #db7188;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(55px, 9vw, 90px);
-      line-height: .9;
-      color: #3b292c;
-      margin-bottom: 25px;
-    }
-
-    h1 span,
-    h2 span {
-      color: #e87991;
-    }
-
-    .hero p {
-      max-width: 500px;
-      margin: auto;
-      color: #70585d;
-      line-height: 1.7;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 13px 27px;
-      background: #e87991;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 13px;
-      border: 2px solid white;
-      outline: 2px dashed #e87991;
-    }
-
-    .button:hover {
-      background: #d7657e;
-    }
-
-    section {
-      max-width: 1050px;
-      margin: auto;
-      padding: 80px 25px;
-    }
-
-    .label {
-      text-align: center;
-      color: #db7188;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      text-align: center;
-      font-family: Georgia, serif;
-      font-size: 45px;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #80666b;
-      margin-bottom: 40px;
-    }
-
-    /* CORE 4 */
-
-    .sets {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .set {
-      position: relative;
-      padding: 35px 25px;
-      text-align: center;
-      background: white;
-      border: 2px dashed #eda0b0;
-      border-radius: 25px;
-      box-shadow: 6px 6px 0 #f7d9df;
-      overflow: hidden;
-    }
-
-    .set::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(#f5b3c1 4px, transparent 5px);
-      background-size: 45px 45px;
-      opacity: .3;
-      pointer-events: none;
-    }
-
-    .set > * {
-      position: relative;
-    }
-
-    .set h3 {
-      display: inline-block;
-      padding: 6px 15px;
-      background: #fff;
-      border-radius: 20px;
-      font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      color: #df7188;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .length {
-      color: #7d6469;
-      font-size: 13px;
-      margin-top: 5px;
-    }
-
-    /* GENERAL INFO */
-
-    .info {
-      max-width: 750px;
-      margin: auto;
-      padding: 32px;
-      background: #fff0f3;
-      border: 2px dashed #ed9aaa;
-      border-radius: 25px;
-    }
-
-    .info h3 {
-      color: #db7188;
-      font-family: Georgia, serif;
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .info p,
-    .info li {
-      color: #684f55;
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    .info ul {
-      padding-left: 20px;
-    }
-
-    .info li {
-      margin-bottom: 8px;
-    }
-
-    /* ADD-ONS */
-
-    .addons {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .addon {
-      padding: 16px 20px;
-      background: white;
-      border: 1px solid #edc8cf;
-      border-radius: 18px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-    }
-
-    .addon strong {
-      color: #db7188;
-    }
-
-    /* PAYMENT */
-
-    .payment {
-      text-align: center;
-      padding: 35px;
-      background: #39272a;
-      color: white;
-      border-radius: 28px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .payment h3 {
-      color: #f4a1b3;
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .payment p {
-      color: #f5dfe3;
-      font-size: 14px;
-    }
-
-    /* POLICIES */
-
-    .policies {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .policy {
-      padding: 18px 5px;
-      border-bottom: 1px dashed #e6a0ae;
-      display: flex;
-      gap: 15px;
-    }
-
-    .policy-number {
-      color: #df7188;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      min-width: 30px;
-    }
-
-    .policy p {
-      color: #684f55;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    /* ORDER */
-
-    .order {
-      max-width: none;
-      text-align: center;
-      background-color: #fff0f3;
-      background-image:
-        radial-gradient(#efa3b4 5px, transparent 6px);
-      background-size: 65px 65px;
-    }
-
-    .order-box {
-      max-width: 700px;
-      margin: auto;
-      padding: 55px 25px;
-      background: rgba(255,255,255,.9);
-      border: 2px dashed #e99aaa;
-      border-radius: 30px;
-    }
-
-    .order h2 {
-      font-size: 45px;
-    }
-
-    .order p {
-      color: #70585d;
-      margin-top: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      background: white;
-      border-top: 2px dashed #ed9aaa;
-      color: #80666b;
-      font-size: 13px;
-    }
-
-    footer strong {
-      color: #df7188;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav {
-        gap: 13px;
-      }
-
-      .hero {
-        padding: 60px 15px;
-      }
-
-      .hero-inner {
-        padding: 45px 18px;
-      }
-
-      .sets {
-        grid-template-columns: 1fr;
-      }
-
-      .addons {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 60px 18px;
-      }
-
-      h2 {
-        font-size: 38px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HelloDot | A Dot of Beauty</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff8fa;
+  color: #3b292c;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  border-bottom: 2px solid #f2c5cf;
+  padding: 22px 7%;
+  text-align: center;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-weight: bold;
+  color: #3b292c;
+  margin: 0;
+}
+
+.logo span {
+  color: #e87891;
+}
+
+.tagline {
+  color: #9a6872;
+  font-family: Georgia, serif;
+  font-style: italic;
+  margin: 4px 0 18px;
+}
+
+nav a {
+  color: #4c373b;
+  text-decoration: none;
+  margin: 0 9px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e87891;
+}
+
+/* HERO */
+
+.hero {
+  padding: 75px 20px;
+  text-align: center;
+
+  background-color: #fff0f3;
+
+  background-image:
+    radial-gradient(#f3a8b8 5px, transparent 6px);
+
+  background-size: 55px 55px;
+
+  border-bottom: 2px dashed #e89aaa;
+}
+
+.hero-box {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.92);
+  border: 2px dashed #e89aaa;
+  border-radius: 28px;
+  padding: 55px 25px;
+}
+
+.hero-small {
+  color: #df7188;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: 65px;
+  line-height: 0.95;
+  margin: 18px 0;
+}
+
+.pink {
+  color: #e87891;
+}
+
+.hero p {
+  max-width: 480px;
+  margin: auto;
+  color: #70575c;
+  line-height: 1.7;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 13px 27px;
+  background: #e87891;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid white;
+  outline: 2px dashed #e87891;
+}
+
+/* SECTIONS */
+
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+.label {
+  text-align: center;
+  color: #df7188;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 42px;
+  margin: 5px 0 12px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #806269;
+  margin-bottom: 35px;
+}
+
+/* CORE 4 */
+
+.sets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.set {
+  position: relative;
+  overflow: hidden;
+
+  background: white;
+
+  border: 2px dashed #eda0b0;
+  border-radius: 24px;
+
+  padding: 35px 20px;
+
+  text-align: center;
+
+  box-shadow: 5px 5px 0 #f7dce1;
+}
+
+.set:before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(#f5b3c1 4px, transparent 5px);
+
+  background-size: 45px 45px;
+
+  opacity: .25;
+}
+
+.set h3,
+.set .price,
+.set .length {
+  position: relative;
+}
+
+.set h3 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.price {
+  color: #df7188;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.length {
+  color: #806269;
+  font-size: 13px;
+}
+
+/* INFO */
+
+.info {
+  max-width: 750px;
+  margin: auto;
+
+  background: #fff0f3;
+
+  border: 2px dashed #e99aaa;
+  border-radius: 24px;
+
+  padding: 30px;
+}
+
+.info h3 {
+  color: #df7188;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.info p,
+.info li {
+  color: #684f55;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.info ul {
+  padding-left: 20px;
+}
+
+/* ADD ONS */
+
+.addons {
+  max-width: 750px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.addon {
+  background: white;
+  border: 1px solid #edcbd1;
+  border-radius: 17px;
+  padding: 16px 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+.addon strong {
+  color: #df7188;
+}
+
+/* PAYMENT */
+
+.payment {
+  max-width: 650px;
+  margin: auto;
+
+  text-align: center;
+
+  background: #3b292c;
+  color: white;
+
+  border-radius: 25px;
+  padding: 35px;
+}
+
+.payment h3 {
+  color: #f2a1b2;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.payment p {
+  color: #f8dfe4;
+  font-size: 14px;
+}
+
+/* POLICIES */
+
+.policies {
+  max-width: 750px;
+  margin: auto;
+}
+
+.policy {
+  padding: 17px 0;
+  border-bottom: 1px dashed #e6a0ae;
+
+  display: flex;
+  gap: 15px;
+}
+
+.number {
+  color: #df7188;
+  font-family: Georgia, serif;
+  font-weight: bold;
+}
+
+.policy p {
+  margin: 0;
+  color: #684f55;
+  font-size: 14px;
+}
+
+/* ORDER */
+
+.order {
+  text-align: center;
+
+  background-color: #fff0f3;
+
+  background-image:
+    radial-gradient(#f3a8b8 5px, transparent 6px);
+
+  background-size: 55px 55px;
+
+  padding: 70px 20px;
+
+  border-top: 2px dashed #e89aaa;
+}
+
+.order-box {
+  max-width: 650px;
+  margin: auto;
+
+  background: rgba(255,255,255,.93);
+
+  border: 2px dashed #e99aaa;
+  border-radius: 28px;
+
+  padding: 45px 20px;
+}
+
+.order p {
+  color: #70575c;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  background: white;
+
+  padding: 30px;
+
+  border-top: 2px dashed #ed9aaa;
+
+  color: #806269;
+
+  font-size: 13px;
+}
+
+footer strong {
+  color: #df7188;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .sets {
+    grid-template-columns: 1fr;
+  }
+
+  .addons {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <header>
-    <a href="#" class="logo">Hello<span>Dot</span></a>
+<header>
 
-    <nav>
-      <a href="#shop">Shop</a>
-      <a href="#custom">Custom</a>
-      <a href="#addons">Add-ons</a>
-      <a href="#sizing">Sizing</a>
-      <a href="#payment">Payment</a>
-      <a href="#policies">Policies</a>
-      <a href="#order">Order</a>
-    </nav>
-  </header>
+  <p class="logo">
+    Hello<span>Dot</span>
+  </p>
+
+  <p class="tagline">
+    a dot of beauty.
+  </p>
+
+  <nav>
+
+    <a href="#shop">Shop</a>
+
+    <a href="#custom">Custom</a>
+
+    <a href="#addons">Add-ons</a>
+
+    <a href="#sizing">Sizing</a>
+
+    <a href="#payment">Payment</a>
+
+    <a href="#policies">Policies</a>
+
+    <a href="#order">Order</a>
+
+  </nav>
+
+</header>
 
 
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="small">Handmade Press-On Nails</div>
+<!-- HERO -->
 
-      <h1>
-        a dot of<br>
-        <span>beauty.</span>
-      </h1>
+<div class="hero">
 
-      <p>
-        Cute, handmade press-on nails made with love
-        and a little something extra.
-      </p>
+  <div class="hero-box">
 
-      <a href="#shop" class="button">Shop Core 4</a>
+    <div class="hero-small">
+      Handmade Press-On Nails
     </div>
+
+    <h1>
+      a dot of<br>
+      <span class="pink">beauty.</span>
+    </h1>
+
+    <p>
+      Cute, handmade press-on nails made with love
+      and a little something extra.
+    </p>
+
+    <a href="#shop" class="button">
+      Shop Core 4
+    </a>
+
   </div>
 
+</div>
 
-  <!-- CORE 4 -->
 
-  <section id="shop">
+<!-- CORE 4 -->
 
-    <div class="label">Our Signature Collection</div>
+<section id="shop">
 
-    <h2>Core 4</h2>
+  <div class="label">
+    HelloDot Collection
+  </div>
 
-    <p class="subtitle">
-      Choose your favorite set. Available in Short or Medium.
-    </p>
+  <h2>
+    Core 4
+  </h2>
 
-    <div class="sets">
+  <p class="subtitle">
+    Our signature handmade sets
+  </p>
 
-      <div class="set">
-        <h3>Sugar Dots</h3>
-        <div class="price">$15</div>
-        <div class="length">Short + Medium</div>
+
+  <div class="sets">
+
+    <div class="set">
+
+      <h3>
+        Sugar Dots
+      </h3>
+
+      <div class="price">
+        $15
       </div>
 
-      <div class="set">
-        <h3>Scarlet Petals</h3>
-        <div class="price">$28</div>
-        <div class="length">Short + Medium</div>
-      </div>
-
-      <div class="set">
-        <h3>Pink Haze</h3>
-        <div class="price">$22</div>
-        <div class="length">Short + Medium</div>
-      </div>
-
-      <div class="set">
-        <h3>Sweetheart Charm</h3>
-        <div class="price">$24</div>
-        <div class="length">Short + Medium</div>
+      <div class="length">
+        Short + Medium
       </div>
 
     </div>
 
-  </section>
 
+    <div class="set">
 
-  <!-- CUSTOM -->
+      <h3>
+        Scarlet Petals
+      </h3>
 
-  <section id="custom">
-
-    <div class="label">Made Your Way</div>
-
-    <h2>Custom Sets</h2>
-
-    <p class="subtitle">
-      Create something completely your own.
-    </p>
-
-    <div class="info">
-
-      <h3>Starting at $20</h3>
-
-      <p>
-        Send a DM with your inspiration, colors, shape,
-        length, charms, and any other details you'd like.
-      </p>
-
-      <p>
-        Final pricing depends on the design and add-ons.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ADD-ONS -->
-
-  <section id="addons">
-
-    <div class="label">A Little Something Extra</div>
-
-    <h2>Add-ons</h2>
-
-    <p class="subtitle">
-      Customize your set with a little extra detail.
-    </p>
-
-    <div class="addons">
-
-      <div class="addon">
-        <span>French Tips</span>
-        <strong>+$2</strong>
+      <div class="price">
+        $28
       </div>
 
-      <div class="addon">
-        <span>Charms</span>
-        <strong>+$2 each</strong>
-      </div>
-
-      <div class="addon">
-        <span>Chrome</span>
-        <strong>+$2</strong>
-      </div>
-
-      <div class="addon">
-        <span>Extra Glitter</span>
-        <strong>+$1</strong>
-      </div>
-
-      <div class="addon">
-        <span>3D Art</span>
-        <strong>+$3</strong>
-      </div>
-
-      <div class="addon">
-        <span>Extra Nail Art</span>
-        <strong>+$2</strong>
-      </div>
-
-      <div class="addon">
-        <span>Rhinestones</span>
-        <strong>+$2</strong>
-      </div>
-
-      <div class="addon">
-        <span>Mix & Match</span>
-        <strong>+$3</strong>
+      <div class="length">
+        Short + Medium
       </div>
 
     </div>
 
-  </section>
 
+    <div class="set">
 
-  <!-- SIZING -->
+      <h3>
+        Pink Haze
+      </h3>
 
-  <section id="sizing">
-
-    <div class="label">Find Your Fit</div>
-
-    <h2>Sizing</h2>
-
-    <div class="info">
-
-      <h3>The Quarter Method</h3>
-
-      <p>
-        HelloDot uses the quarter method for sizing.
-      </p>
-
-      <p>
-        If you don't know how to use the quarter method,
-        look it up on TikTok for a quick visual guide.
-      </p>
-
-      <p>
-        Please double-check your measurements before
-        placing your order.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- PAYMENT -->
-
-  <section id="payment">
-
-    <div class="label">Payment</div>
-
-    <h2>Payment</h2>
-
-    <div class="payment">
-
-      <h3>Cash App</h3>
-
-      <p>
-        Cash App is currently available for payment.
-      </p>
-
-      <p>
-        More payment options coming soon.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- POLICIES -->
-
-  <section id="policies">
-
-    <div class="label">Before You Order</div>
-
-    <h2>Policies</h2>
-
-    <div class="policies">
-
-      <div class="policy">
-        <div class="policy-number">01</div>
-        <p>Please double-check your sizing before ordering.</p>
+      <div class="price">
+        $22
       </div>
 
-      <div class="policy">
-        <div class="policy-number">02</div>
-        <p>All sets are handmade, so small differences may occur.</p>
-      </div>
-
-      <div class="policy">
-        <div class="policy-number">03</div>
-        <p>Custom orders must be discussed before payment.</p>
-      </div>
-
-      <div class="policy">
-        <div class="policy-number">04</div>
-        <p>Please be patient while your order is being made.</p>
-      </div>
-
-      <div class="policy">
-        <div class="policy-number">05</div>
-        <p>Once an order is confirmed, changes may not be possible.</p>
+      <div class="length">
+        Short + Medium
       </div>
 
     </div>
 
-  </section>
 
+    <div class="set">
 
-  <!-- ORDER -->
+      <h3>
+        Sweetheart Charm
+      </h3>
 
-  <div class="order" id="order">
+      <div class="price">
+        $24
+      </div>
 
-    <div class="order-box">
-
-      <div class="label">HelloDot</div>
-
-      <h2>Ready to order?</h2>
-
-      <p>DM to order your set.</p>
-
-      <p>
-        Include your set, length, sizing, and any add-ons.
-      </p>
-
-      <a href="#" class="button">DM to Order</a>
+      <div class="length">
+        Short + Medium
+      </div>
 
     </div>
 
   </div>
 
+</section>
 
-  <footer>
-    HelloDot <strong>•</strong> A Dot of Beauty.
-  </footer>
+
+<!-- CUSTOM -->
+
+<section id="custom">
+
+  <div class="label">
+    Made For You
+  </div>
+
+  <h2>
+    Custom Sets
+  </h2>
+
+  <p class="subtitle">
+    Create something completely your own.
+  </p>
+
+
+  <div class="info">
+
+    <h3>
+      Starting at $20
+    </h3>
+
+    <p>
+      Send a DM with your inspiration, colors, shape,
+      length, charms, and any other details you'd like.
+    </p>
+
+    <p>
+      Final pricing depends on the design and add-ons.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ADD ONS -->
+
+<section id="addons">
+
+  <div class="label">
+    A Little Something Extra
+  </div>
+
+  <h2>
+    Add-ons
+  </h2>
+
+  <p class="subtitle">
+    Customize your set with extra details.
+  </p>
+
+
+  <div class="addons">
+
+    <div class="addon">
+      <span>French Tips</span>
+      <strong>+$2</strong>
+    </div>
+
+    <div class="addon">
+      <span>Charms</span>
+      <strong>+$2 each</strong>
+    </div>
+
+    <div class="addon">
+      <span>Chrome</span>
+      <strong>+$2</strong>
+    </div>
+
+    <div class="addon">
+      <span>Extra Glitter</span>
+      <strong>+$1</strong>
+    </div>
+
+    <div class="addon">
+      <span>3D Art</span>
+      <strong>+$3</strong>
+    </div>
+
+    <div class="addon">
+      <span>Extra Nail Art</span>
+      <strong>+$2</strong>
+    </div>
+
+    <div class="addon">
+      <span>Rhinestones</span>
+      <strong>+$2</strong>
+    </div>
+
+    <div class="addon">
+      <span>Mix & Match</span>
+      <strong>+$3</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SIZING -->
+
+<section id="sizing">
+
+  <div class="label">
+    Find Your Fit
+  </div>
+
+  <h2>
+    Sizing
+  </h2>
+
+
+  <div class="info">
+
+    <h3>
+      The Quarter Method
+    </h3>
+
+    <p>
+      HelloDot uses the quarter method for sizing.
+    </p>
+
+    <p>
+      If you don't know how to use the quarter method,
+      look it up on TikTok for a quick tutorial.
+    </p>
+
+    <p>
+      Please double-check your measurements before
+      placing your order.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section id="payment">
+
+  <div class="label">
+    Payment
+  </div>
+
+  <h2>
+    Payment
+  </h2>
+
+
+  <div class="payment">
+
+    <h3>
+      Cash App
+    </h3>
+
+    <p>
+      Cash App is currently available for payment.
+    </p>
+
+    <p>
+      More payment options coming soon.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- POLICIES -->
+
+<section id="policies">
+
+  <div class="label">
+    Before You Order
+  </div>
+
+  <h2>
+    Policies
+  </h2>
+
+
+  <div class="policies">
+
+    <div class="policy">
+      <div class="number">01</div>
+      <p>
+        Please double-check your sizing before ordering.
+      </p>
+    </div>
+
+    <div class="policy">
+      <div class="number">02</div>
+      <p>
+        All sets are handmade, so small differences may occur.
+      </p>
+    </div>
+
+    <div class="policy">
+      <div class="number">03</div>
+      <p>
+        Custom orders must be discussed before payment.
+      </p>
+    </div>
+
+    <div class="policy">
+      <div class="number">04</div>
+      <p>
+        Please be patient while your order is being made.
+      </p>
+    </div>
+
+    <div class="policy">
+      <div class="number">05</div>
+      <p>
+        Once an order is confirmed, changes may not be possible.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<div class="order" id="order">
+
+  <div class="order-box">
+
+    <div class="label">
+      HelloDot
+    </div>
+
+    <h2>
+      Ready to order?
+    </h2>
+
+    <p>
+      DM to order your set.
+    </p>
+
+    <p>
+      Include your set, length, sizing, and any add-ons.
+    </p>
+
+    <a href="#" class="button">
+      DM to Order
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  HelloDot <strong>•</strong> A Dot of Beauty.
+
+</footer>
+
 
 </body>
 </html>
