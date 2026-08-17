@@ -1,488 +1,774 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelloDot | A Dot of Beauty</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <title>HelloDot | A Dot of Beauty</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    body {
-      background: #fffafa;
-      color: #3d292d;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-    }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #f1d8dd;
-      padding: 22px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+    body {
+      background:
+        radial-gradient(circle at 20px 20px, #f8a9b9 0 7px, transparent 8px),
+        radial-gradient(circle at 90px 75px, #f8a9b9 0 6px, transparent 7px),
+        #fffafa;
+      background-size: 130px 110px;
+      color: #382325;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      line-height: 1.5;
+    }
 
-    .logo {
-      color: #d87589;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    /* HEADER */
 
-    nav {
-      display: flex;
-      gap: 22px;
-    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background:
+        radial-gradient(circle, #f7a7b8 0 6px, transparent 7px),
+        #fffafa;
+      background-size: 95px 80px;
+      border-bottom: 2px solid #f4a0b2;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    nav a {
-      color: #5d4549;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    .logo {
+      color: #3a2424;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-decoration: none;
+    }
 
-    nav a:hover {
-      color: #d87589;
-    }
+    .logo span {
+      color: #ed7189;
+    }
 
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: #fff0f3;
-    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-    .small-title {
-      color: #b77a85;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+    nav a {
+      color: #3d292b;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-    .hero h1 {
-      color: #3d292d;
-      font-size: clamp(45px, 8vw, 78px);
-      line-height: 0.95;
-      margin-bottom: 25px;
-    }
+    nav a:hover {
+      color: #e86d85;
+    }
 
-    .hero p {
-      max-width: 520px;
-      margin: auto;
-      color: #765b60;
-      font-size: 16px;
-    }
+    .nav-button {
+      background: #ee7189;
+      color: white !important;
+      padding: 10px 19px;
+      border: 2px solid #fff;
+      outline: 2px dashed #ed8fa0;
+      border-radius: 25px;
+    }
 
-    .button {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 13px 26px;
-      background: #d87589;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
+    /* HERO */
 
-    .button:hover {
-      background: #c56277;
-    }
+    .hero {
+      min-height: 600px;
+      padding: 90px 7%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 20%, #f7a8b8 0 7px, transparent 8px),
+        radial-gradient(circle at 85% 15%, #f7a8b8 0 6px, transparent 7px),
+        radial-gradient(circle at 70% 80%, #f7a8b8 0 7px, transparent 8px),
+        #fffafa;
+      background-size: 120px 110px;
+      border-bottom: 2px dashed #f3a2b3;
+    }
 
-    section {
-      max-width: 1050px;
-      margin: auto;
-      padding: 80px 25px;
-    }
+    .hero-text {
+      text-align: center;
+    }
 
-    .section-label {
-      text-align: center;
-      color: #c27b88;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
+    .tiny {
+      color: #d66c80;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
 
-    .section-title {
-      text-align: center;
-      font-size: 40px;
-      color: #3d292d;
-      margin-bottom: 12px;
-    }
+    .hero h1 {
+      font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+      font-size: clamp(50px, 7vw, 82px);
+      line-height: .9;
+      color: #382323;
+      margin-bottom: 25px;
+    }
 
-    .section-subtitle {
-      text-align: center;
-      color: #85666b;
-      margin-bottom: 40px;
-    }
+    .hero h1 .pink {
+      color: #ed7189;
+    }
 
-    .sets {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
+    .hero p {
+      max-width: 480px;
+      margin: auto;
+      font-size: 16px;
+      font-weight: 600;
+    }
 
-    .card {
-      background: white;
-      border: 1px solid #efd8dd;
-      border-radius: 22px;
-      padding: 35px 25px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
+    .main-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #ed7189;
+      color: white;
+      text-decoration: none;
+      border: 3px solid white;
+      outline: 2px dashed #ed7189;
+      border-radius: 30px;
+      font-weight: bold;
+    }
 
-    .card:hover {
-      transform: translateY(-3px);
-    }
+    .main-button:hover {
+      transform: rotate(-2deg);
+    }
 
-    .card h3 {
-      color: #d87589;
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
+    /* DOODLE SIDE */
 
-    .price {
-      color: #3d292d;
-      font-family: Arial, sans-serif;
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+    .doodle {
+      text-align: center;
+      position: relative;
+      padding: 30px;
+    }
 
-    .length {
-      color: #92747a;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-    }
+    .doodle-circle {
+      width: 280px;
+      height: 280px;
+      margin: auto;
+      border-radius: 50%;
+      background: #f8b29d;
+      border: 5px solid #3a2424;
+      position: relative;
+      box-shadow: 12px 12px 0 #f5a1b2;
+    }
 
-    .info {
-      background: #fff0f3;
-      border-radius: 22px;
-      padding: 35px;
-      margin-top: 30px;
-    }
+    .doodle-circle:before {
+      content: "✦";
+      position: absolute;
+      color: #ed7189;
+      font-size: 45px;
+      top: -35px;
+      left: 20px;
+    }
 
-    .info h3 {
-      color: #d87589;
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
+    .doodle-circle:after {
+      content: "♥";
+      position: absolute;
+      color: #ed7189;
+      font-size: 32px;
+      bottom: 10px;
+      right: -35px;
+    }
 
-    .info p {
-      color: #684f54;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+    .doodle-title {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 40px;
+      font-weight: bold;
+      transform: rotate(-8deg);
+      margin-bottom: -20px;
+      position: relative;
+      z-index: 2;
+    }
 
-    .info ul {
-      padding-left: 20px;
-      font-family: Arial, sans-serif;
-      color: #684f54;
-      font-size: 14px;
-    }
+    .doodle-caption {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 20px;
+      transform: rotate(5deg);
+      margin-top: 25px;
+    }
 
-    .info li {
-      margin-bottom: 9px;
-    }
+    /* LADYBUG */
 
-    .order-section {
-      background: #fff0f3;
-      max-width: none;
-      text-align: center;
-      padding: 80px 25px;
-    }
+    .ladybug {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background: #ef6680;
+      border: 3px solid #241819;
+      border-radius: 50%;
+      transform: rotate(-15deg);
+      z-index: 5;
+    }
 
-    .order-section h2 {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
+    .ladybug:before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 30px;
+      background: #241819;
+      left: 12px;
+      top: 0;
+    }
 
-    .order-section p {
-      color: #765b60;
-      font-family: Arial, sans-serif;
-    }
+    .ladybug:after {
+      content: "••";
+      position: absolute;
+      color: #241819;
+      font-size: 13px;
+      letter-spacing: 7px;
+      left: 3px;
+      top: 5px;
+    }
 
-    footer {
-      background: white;
-      border-top: 1px solid #efd8dd;
-      text-align: center;
-      padding: 35px 20px;
-      color: #98747b;
-      font-size: 13px;
-    }
+    .bug1 {
+      top: 30px;
+      right: 15%;
+    }
 
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+    .bug2 {
+      bottom: 15px;
+      left: 8%;
+    }
 
-      nav {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    .bug3 {
+      top: 10px;
+      left: 5%;
+    }
 
-      .sets {
-        grid-template-columns: 1fr;
-      }
+    /* SECTIONS */
 
-      .hero {
-        padding: 75px 20px;
-      }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 25px;
+    }
 
-      section {
-        padding: 60px 20px;
-      }
-    }
-  </style>
+    .section-label {
+      text-align: center;
+      color: #e36f84;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+      font-size: 45px;
+      margin: 5px 0 8px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #76595d;
+      margin-bottom: 40px;
+    }
+
+    /* CORE 4 */
+
+    .sets {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle, #f6a8b8 0 5px, transparent 6px),
+        #fff;
+      background-size: 55px 55px;
+      border: 2px dashed #ef8ea1;
+      border-radius: 25px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 5px 5px 0 #f9d2d9;
+    }
+
+    .card:before {
+      content: "♥";
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      color: #ed7890;
+      font-size: 22px;
+    }
+
+    .card h3 {
+      background: #fffafa;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      color: #382323;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #e86c84;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .length {
+      margin-top: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* INFO CARDS */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .info {
+      background: #fffafa;
+      border: 2px dashed #ef9aaa;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 5px 5px 0 #f8d5db;
+      position: relative;
+    }
+
+    .info h3 {
+      color: #e56f85;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .info p,
+    .info li {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .info ul {
+      padding-left: 20px;
+    }
+
+    .info:after {
+      content: "♥";
+      position: absolute;
+      right: 18px;
+      bottom: 10px;
+      color: #f08aa0;
+      font-size: 20px;
+    }
+
+    /* PAYMENT */
+
+    .payment {
+      text-align: center;
+      background: #fff0f3;
+      border: 2px dashed #ed91a3;
+      border-radius: 25px;
+      padding: 35px;
+    }
+
+    .cash-icon {
+      display: inline-flex;
+      width: 55px;
+      height: 55px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: #ed7189;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    /* POLICIES */
+
+    .policies {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .policy {
+      padding: 18px;
+      border-radius: 20px;
+      background: #fffafa;
+      border: 2px dashed #f0a0b0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .policy:before {
+      content: "•";
+      display: block;
+      color: #ed7189;
+      font-size: 25px;
+    }
+
+    /* ORDER */
+
+    .order {
+      position: relative;
+      max-width: 1050px;
+      margin: 0 auto 70px;
+      padding: 55px 30px;
+      text-align: center;
+      border: 2px dashed #ef91a4;
+      border-radius: 30px;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 20px,
+          rgba(237,113,137,.08) 20px,
+          rgba(237,113,137,.08) 40px
+        ),
+        #fff5f7;
+    }
+
+    .order h2 {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .order p {
+      margin-bottom: 5px;
+    }
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 2px dashed #ef9aaa;
+      background:
+        radial-gradient(circle, #f5a5b5 0 5px, transparent 6px),
+        #fffafa;
+      background-size: 80px 70px;
+      font-weight: bold;
+    }
+
+    footer strong {
+      color: #e76e84;
+    }
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 20px;
+      }
+
+      .sets,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .policies {
+        grid-template-columns: 1fr;
+      }
+
+      .doodle-circle {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <a href="#" class="logo">hellodot</a>
+<header>
+  <a href="#" class="logo">Hello<span>Dot</span></a>
 
-    <nav>
-      <a href="#shop">shop</a>
-      <a href="#custom">custom</a>
-      <a href="#sizing">sizing</a>
-      <a href="#addons">add-ons</a>
-      <a href="#policies">policies</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#shop">shop</a>
+    <a href="#custom">custom</a>
+    <a href="#sizing">sizing</a>
+    <a href="#addons">add-ons</a>
+    <a href="#policies">policies</a>
+    <a href="#order" class="nav-button">DM to order</a>
+  </nav>
 
+  <div class="ladybug bug3"></div>
+</header>
 
-  <main>
 
-    <div class="hero">
-      <div class="small-title">handmade press-on nails</div>
+<div class="hero">
 
-      <h1>a dot of<br>beauty.</h1>
+  <div class="hero-text">
+    <div class="tiny">handmade press-on nails</div>
 
-      <p>
-        Cute, handmade press-on nails designed with love
-        and a little something extra.
-      </p>
+    <h1>
+      a dot of<br>
+      <span class="pink">beauty.</span>
+    </h1>
 
-      <a href="#shop" class="button">shop the collection</a>
-    </div>
+    <p>
+      Cute, handmade press-on nails designed with love
+      and a little something extra.
+    </p>
 
+    <a href="#shop" class="main-button">shop the collection</a>
+  </div>
 
-    <section id="shop">
 
-      <div class="section-label">hellodot collection</div>
+  <div class="doodle">
 
-      <h2 class="section-title">Core 4</h2>
+    <div class="doodle-title">HelloDot</div>
 
-      <p class="section-subtitle">
-        our signature sets
-      </p>
+    <div class="doodle-circle">
+      <div class="ladybug bug1"></div>
+    </div>
 
-      <div class="sets">
+    <div class="doodle-caption">
+      handmade press-on nails
+    </div>
 
-        <div class="card">
-          <h3>Sugar Dots</h3>
-          <div class="price">$15</div>
-          <div class="length">Short + Medium</div>
-        </div>
+  </div>
 
-        <div class="card">
-          <h3>Scarlet Petals</h3>
-          <div class="price">$28</div>
-          <div class="length">Short + Medium</div>
-        </div>
+</div>
 
-        <div class="card">
-          <h3>Pink Haze</h3>
-          <div class="price">$22</div>
-          <div class="length">Short + Medium</div>
-        </div>
 
-        <div class="card">
-          <h3>Sweetheart Charm</h3>
-          <div class="price">$24</div>
-          <div class="length">Short + Medium</div>
-        </div>
+<section id="shop">
 
-      </div>
+  <div class="section-label">our signature collection</div>
 
-    </section>
+  <h2 class="section-title">Core 4</h2>
 
+  <p class="section-subtitle">
+    four little sets made with love
+  </p>
 
-    <section id="custom">
+  <div class="sets">
 
-      <div class="section-label">made for you</div>
+    <div class="card">
+      <h3>Sugar Dots</h3>
+      <div class="price">$15</div>
+      <div class="length">Short + Medium</div>
+    </div>
 
-      <h2 class="section-title">Custom Sets</h2>
+    <div class="card">
+      <h3>Scarlet Petals</h3>
+      <div class="price">$28</div>
+      <div class="length">Short + Medium</div>
+    </div>
 
-      <p class="section-subtitle">
-        create something that's completely your own
-      </p>
+    <div class="card">
+      <h3>Pink Haze</h3>
+      <div class="price">$22</div>
+      <div class="length">Short + Medium</div>
+    </div>
 
-      <div class="info">
-        <h3>Custom sets start at $20</h3>
+    <div class="card">
+      <h3>Sweetheart Charm</h3>
+      <div class="price">$24</div>
+      <div class="length">Short + Medium</div>
+    </div>
 
-        <p>
-          Send a DM with your inspo, colors, shape, length,
-          charms, and any other details you'd like.
-        </p>
+  </div>
 
-        <p>
-          Final pricing depends on the design and add-ons.
-        </p>
-      </div>
+</section>
 
-    </section>
 
+<section id="custom">
 
-    <section id="sizing">
+  <div class="section-label">made just for you</div>
 
-      <div class="section-label">find your fit</div>
+  <h2 class="section-title">Custom Sets</h2>
 
-      <h2 class="section-title">Sizing</h2>
+  <p class="section-subtitle">
+    create something completely your own
+  </p>
 
-      <div class="info">
+  <div class="info-grid">
 
-        <h3>The Quarter Method</h3>
+    <div class="info">
+      <h3>starting at $20</h3>
 
-        <p>
-          HelloDot uses the quarter method for sizing.
-        </p>
+      <p>
+        Send a DM with your inspo, colors, shape,
+        length, charms, and any other details you'd like.
+      </p>
 
-        <p>
-          If you don't know how to use the quarter method,
-          please look it up on TikTok for a quick tutorial.
-        </p>
+      <p>
+        Final pricing depends on the design and add-ons.
+      </p>
+    </div>
 
-        <p>
-          Please double-check your measurements before
-          placing your order.
-        </p>
+  </div>
 
-      </div>
+</section>
 
-    </section>
 
+<section id="sizing">
 
-    <section id="addons">
+  <div class="section-label">find your fit</div>
 
-      <div class="section-label">a little something extra</div>
+  <h2 class="section-title">Sizing</h2>
 
-      <h2 class="section-title">Add-ons</h2>
+  <div class="info-grid">
 
-      <div class="info">
+    <div class="info">
+      <h3>The Quarter Method</h3>
 
-        <ul>
-          <li>French tips — +$2</li>
-          <li>Charms — +$2 each</li>
-          <li>Chrome — +$2</li>
-          <li>Extra glitter — +$1</li>
-          <li>3D art — +$3</li>
-          <li>Extra nail art — +$2</li>
-          <li>Rhinestones — +$2</li>
-          <li>Mix & match — +$3</li>
-        </ul>
+      <p>
+        HelloDot uses the quarter method for sizing.
+      </p>
 
-      </div>
+      <p>
+        If you don't know how to use the quarter method,
+        please look it up on TikTok for a quick tutorial.
+      </p>
 
-    </section>
+      <p>
+        Please double-check your measurements before
+        placing your order.
+      </p>
+    </div>
 
+  </div>
 
-    <section>
+</section>
 
-      <div class="section-label">payment</div>
 
-      <h2 class="section-title">Payment</h2>
+<section id="addons">
 
-      <div class="info">
-        <h3>Cash App</h3>
+  <div class="section-label">a little something extra</div>
 
-        <p>
-          Cash App is currently available for payment.
-        </p>
+  <h2 class="section-title">Add-ons</h2>
 
-        <p>
-          More payment options coming soon.
-        </p>
-      </div>
+  <div class="info-grid">
 
-    </section>
+    <div class="info">
 
+      <h3>Make it yours</h3>
 
-    <section id="policies">
+      <ul>
+        <li>French tips — +$2</li>
+        <li>Charms — +$2 each</li>
+        <li>Chrome — +$2</li>
+        <li>Extra glitter — +$1</li>
+        <li>3D art — +$3</li>
+        <li>Extra nail art — +$2</li>
+        <li>Rhinestones — +$2</li>
+        <li>Mix & match — +$3</li>
+      </ul>
 
-      <div class="section-label">before you order</div>
+    </div>
 
-      <h2 class="section-title">Policies</h2>
+  </div>
 
-      <div class="info">
+</section>
 
-        <ul>
-          <li>Please double-check your sizing before ordering.</li>
 
-          <li>
-            All sets are handmade, so small differences
-            may occur.
-          </li>
+<section>
 
-          <li>
-            Custom orders must be discussed before payment.
-          </li>
+  <div class="section-label">payment</div>
 
-          <li>
-            Please be patient while your order is being made.
-          </li>
+  <h2 class="section-title">Payment</h2>
 
-          <li>
-            Once an order is confirmed, changes may not be possible.
-          </li>
+  <div class="payment">
 
-        </ul>
+    <h3>Cash App</h3>
 
-      </div>
+    <div class="cash-icon">$</div>
 
-    </section>
+    <p>
+      Cash App is currently available for payment.
+    </p>
 
+    <p>
+      More payment options coming soon.
+    </p>
 
-    <div class="order-section">
+  </div>
 
-      <div class="section-label">hellodot</div>
+</section>
 
-      <h2>ready to order?</h2>
 
-      <p>
-        DM to order your set.
-      </p>
+<section id="policies">
 
-      <p>
-        Include your set, length, sizing, and any add-ons.
-      </p>
+  <div class="section-label">before you order</div>
 
-      <a href="#" class="button">DM to order</a>
+  <h2 class="section-title">Policies</h2>
 
-    </div>
+  <div class="policies">
 
-  </main>
+    <div class="policy">
+      Please double-check your sizing before ordering.
+    </div>
 
+    <div class="policy">
+      All sets are handmade, so small differences may occur.
+    </div>
 
-  <footer>
-    hellodot · a dot of beauty.
-  </footer>
+    <div class="policy">
+      Custom orders must be discussed before payment.
+    </div>
+
+    <div class="policy">
+      Please be patient while your order is being made.
+    </div>
+
+    <div class="policy">
+      Once an order is confirmed, changes may not be possible.
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="order" id="order">
+
+  <div class="ladybug bug2"></div>
+
+  <div class="section-label">hellodot</div>
+
+  <h2>ready to order?</h2>
+
+  <p>DM to order your set.</p>
+
+  <p>
+    Include your set, length, sizing, and any add-ons.
+  </p>
+
+  <a href="#" class="main-button">DM to order</a>
+
+</div>
+
+
+<footer>
+  HelloDot <strong>•</strong> a dot of beauty.
+</footer>
 
 </body>
 </html>
